@@ -68,4 +68,31 @@ namespace sr {
         std::fclose(fp);
         LOGGER() << "closed file descriptor [" << (size_t)fp << "]\n";
     }
+
+    extern FILE* FMOpenFileForWrite(const char* filename) {
+        FILE* fp = std::fopen(filename, "wb");
+        if (fp == nullptr) {
+            LGDieOnError("cannot open file ", filename);
+        }
+        LOGGER() << "opened file descriptor [" << (size_t)fp << "]\n";
+        return fp;
+    }
+    
+    extern std::pair<FILE*, std::string> FMOpenFileForWriteDontOverWrite(const char* filename_prefix, const char* filename_suffix) {
+        std::string filename_final = std::string(filename_prefix) + filename_suffix;
+        for (int id = 1; FMIsFileExists(filename_final.c_str()); ++id) {
+            filename_final = std::string(filename_prefix) + std::to_string(id) + filename_suffix;
+        }
+        FILE* fp = std::fopen(filename_final.c_str(), "wb");
+        if (fp == nullptr) {
+            LGDieOnError("cannot open file ", filename_final.c_str());
+        }
+        LOGGER() << "opened file descriptor [" << (size_t)fp << "]\n";
+        return make_pair(fp, filename_final);
+    }
+    
+    extern void FMCloseFileForWrite(FILE* fp) {
+        std::fclose(fp);
+        LOGGER() << "closed file descriptor [" << (size_t)fp << "]\n";
+    }
 }

@@ -1,3 +1,8 @@
 logs/**
 dependencies/**
 objs/**
+output_images/**
+**/*.o
+**/*.d
+main
+memo.txt

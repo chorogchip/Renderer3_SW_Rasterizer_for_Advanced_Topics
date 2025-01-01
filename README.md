@@ -2,3 +2,12 @@
 
 a software rasterizer for practicing advanced topics in real time rendering.
 making project in army, lack of environment for graphics dev, decided to make SW renderer.
+
+## how to run
+```
+make
+./main
+```
+
+## used libs
+https://github.com/aseprite/tga
