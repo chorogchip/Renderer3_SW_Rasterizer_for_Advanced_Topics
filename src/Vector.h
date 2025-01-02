@@ -87,5 +87,101 @@ namespace sr {
 		return x * v.x + y * v.y;
 	}
 
+	template<typename T>
+	Vector3<T> Vector3<T>::operator+(const Vector3<T>& v) const {
+		return Vector3<T>(x + v.x, y + v.y, z + v.z);
+	}
+	template<typename T>
+	Vector3<T> Vector3<T>::operator-(const Vector3<T>& v) const {
+		return Vector3<T>(x - v.x, y - v.y, z - v.z);
+	}
+	template<typename T>
+	Vector3<T> Vector3<T>::operator*(T val) const {
+		return Vector3<T>(x * val, y * val, z * val);
+	}
+	template<typename T>
+	Vector3<T> Vector3<T>::operator/(T val) const {
+		return Vector3<T>(x / val, y / val, z / val);
+	}
+	template<typename T>
+	Vector3<T>& Vector3<T>::operator+=(const Vector3<T>& v) {
+		x += v.x; y += v.y; z += v.z;
+        return *this;
+	}
+	template<typename T>
+	Vector3<T>& Vector3<T>::operator-=(const Vector3<T>& v) {
+		x -= v.x; y -= v.y; z -= v.z;
+        return *this;
+	}
+	template<typename T>
+	Vector3<T>& Vector3<T>::operator*=(T val) {
+		x *= val; y *= val; z *= val;
+        return *this;
+	}
+	template<typename T>
+	Vector3<T>& Vector3<T>::operator/=(T val) {
+		x /= val; y /= val; z /= val;
+        return *this;
+	}
+	template<typename T>
+    T Vector3<T>::operator[](int index) const {
+		if (index == 0) return x;
+        else if (index == 1) return y;
+        else if (index == 2) return z;
+        else return 0;
+	}
+	template<typename T>
+    T Vector3<T>::dot(const Vector3<T>& v) const {
+		return x * v.x + y * v.y + z * v.z;
+	}
+
+	template<typename T>
+	Vector4<T> Vector4<T>::operator+(const Vector4<T>& v) const {
+		return Vector4<T>(x + v.x, y + v.y, z + v.z, w + v.w);
+	}
+	template<typename T>
+	Vector4<T> Vector4<T>::operator-(const Vector4<T>& v) const {
+		return Vector4<T>(x - v.x, y - v.y, z - v.z, w - v.w);
+	}
+	template<typename T>
+	Vector4<T> Vector4<T>::operator*(T val) const {
+		return Vector4<T>(x * val, y * val, z * val, w * val);
+	}
+	template<typename T>
+	Vector4<T> Vector4<T>::operator/(T val) const {
+		return Vector4<T>(x / val, y / val, z / val, w / val);
+	}
+	template<typename T>
+	Vector4<T>& Vector4<T>::operator+=(const Vector4<T>& v) {
+		x += v.x; y += v.y; z += v.z; w += v.w;
+        return *this;
+	}
+	template<typename T>
+	Vector4<T>& Vector4<T>::operator-=(const Vector4<T>& v) {
+		x -= v.x; y -= v.y; z -= v.z; w -= v.w;
+        return *this;
+	}
+	template<typename T>
+	Vector4<T>& Vector4<T>::operator*=(T val) {
+		x *= val; y *= val; z *= val; w *= wal;
+        return *this;
+	}
+	template<typename T>
+	Vector4<T>& Vector4<T>::operator/=(T val) {
+		x /= val; y /= val; z /= val; w /= val;
+        return *this;
+	}
+	template<typename T>
+    T Vector4<T>::operator[](int index) const {
+		if (index == 0) return x;
+        else if (index == 1) return y;
+        else if (index == 2) return z;
+        else if (index == 3) return w;
+        else return 0;
+	}
+	template<typename T>
+    T Vector4<T>::dot(const Vector4<T>& v) const {
+		return x * v.x + y * v.y + z * v.z + v.w;
+	}
 
 }
